@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/webstory-editor-starter/static/js/main.c5fbac28.js",
+    "main.js": "/webstory-editor-starter/static/js/main.67769423.js",
     "static/js/4108.e1940916.chunk.js": "/webstory-editor-starter/static/js/4108.e1940916.chunk.js",
     "static/js/2736.d40baac2.chunk.js": "/webstory-editor-starter/static/js/2736.d40baac2.chunk.js",
     "static/js/7757.12e6e595.chunk.js": "/webstory-editor-starter/static/js/7757.12e6e595.chunk.js",
@@ -77,12 +77,12 @@
     "static/js/9888.26a6c0cb.chunk.js": "/webstory-editor-starter/static/js/9888.26a6c0cb.chunk.js",
     "static/js/2941.432dbb41.chunk.js": "/webstory-editor-starter/static/js/2941.432dbb41.chunk.js",
     "static/js/8531.95da963e.chunk.js": "/webstory-editor-starter/static/js/8531.95da963e.chunk.js",
-    "static/js/2700.050fee4f.chunk.js": "/webstory-editor-starter/static/js/2700.050fee4f.chunk.js",
+    "static/js/2700.392d4600.chunk.js": "/webstory-editor-starter/static/js/2700.392d4600.chunk.js",
     "static/js/9563.49269427.chunk.js": "/webstory-editor-starter/static/js/9563.49269427.chunk.js",
     "static/js/3849.39969ca0.chunk.js": "/webstory-editor-starter/static/js/3849.39969ca0.chunk.js",
     "static/js/318.68d52ebe.chunk.js": "/webstory-editor-starter/static/js/318.68d52ebe.chunk.js",
     "index.html": "/webstory-editor-starter/index.html",
-    "main.c5fbac28.js.map": "/webstory-editor-starter/static/js/main.c5fbac28.js.map",
+    "main.67769423.js.map": "/webstory-editor-starter/static/js/main.67769423.js.map",
     "4108.e1940916.chunk.js.map": "/webstory-editor-starter/static/js/4108.e1940916.chunk.js.map",
     "2736.d40baac2.chunk.js.map": "/webstory-editor-starter/static/js/2736.d40baac2.chunk.js.map",
     "7757.12e6e595.chunk.js.map": "/webstory-editor-starter/static/js/7757.12e6e595.chunk.js.map",
@@ -150,12 +150,12 @@
     "6535.64492d11.chunk.js.map": "/webstory-editor-starter/static/js/6535.64492d11.chunk.js.map",
     "2161.94acfcab.chunk.js.map": "/webstory-editor-starter/static/js/2161.94acfcab.chunk.js.map",
     "8207.370f25c0.chunk.js.map": "/webstory-editor-starter/static/js/8207.370f25c0.chunk.js.map",
-    "2700.050fee4f.chunk.js.map": "/webstory-editor-starter/static/js/2700.050fee4f.chunk.js.map",
+    "2700.392d4600.chunk.js.map": "/webstory-editor-starter/static/js/2700.392d4600.chunk.js.map",
     "9563.49269427.chunk.js.map": "/webstory-editor-starter/static/js/9563.49269427.chunk.js.map",
     "3849.39969ca0.chunk.js.map": "/webstory-editor-starter/static/js/3849.39969ca0.chunk.js.map",
     "318.68d52ebe.chunk.js.map": "/webstory-editor-starter/static/js/318.68d52ebe.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.c5fbac28.js"
+    "static/js/main.67769423.js"
   ]
 }
