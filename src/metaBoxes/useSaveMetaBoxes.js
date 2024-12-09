@@ -23,7 +23,7 @@ import { useConfig } from '@googleforcreators/story-editor';
 /**
  * Internal dependencies
  */
-import { saveMetaBoxes } from '../../api/metaboxes';
+// import { saveMetaBoxes } from '../../api/metaboxes';
 import useMetaBoxes from './useMetaBoxes';
 
 /**

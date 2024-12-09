@@ -19,22 +19,28 @@
 import {
   ExcerptPanel,
   SlugPanel,
-  PageAdvancementPanel
+  PageAdvancementPanel,
+  BackgroundAudioPanel,
+  TaxonomiesPanel,
 } from '@googleforcreators/story-editor';
 import styled from 'styled-components';
 
 /**
  * Internal dependencies
  */
+import PublishPanel from './publish';
 import StatusPanel from './status';
 
 function DocumentPane() {
   return (
     <>
       <StatusPanel />
+      <PublishPanel />
       <ExcerptPanel />
       <SlugPanel />
       <PageAdvancementPanel />
+      <BackgroundAudioPanel />
+      <TaxonomiesPanel />
     </>
   );
 }
