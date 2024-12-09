@@ -13,4 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export * from './status.js';
+
+export const VISIBILITY = {
+  PUBLIC: 'public',
+  PRIVATE: 'private',
+  PASSWORD_PROTECTED: 'protected',
+};
+
+export const STATUS = {
+  PUBLISH: 'publish',
+  FUTURE: 'future',
+  PRIVATE: 'private',
+  DRAFT: 'draft',
+};
+
+export const ALLOWED_MIME_TYPES = {
+  audio: ['audio/mpeg', 'audio/aac', 'audio/wav', 'audio/ogg'],
+  image: ['image/png', 'image/jpeg', 'image/jpg', 'image/gif', 'image/webp'],
+  caption: ['text/vtt'],
+  vector: ['image/svg+xml']
+};
+
+export const CAPABILITIES = {
+  "hasUploadMediaAction": true,
+  "canManageSettings": true
+}
+

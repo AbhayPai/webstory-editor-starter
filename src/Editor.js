@@ -17,6 +17,7 @@ import DocumentPane, {
   IsolatedStatusPanel,
 } from './documentPane';
 import { default as Header } from './header';
+import { ALLOWED_MIME_TYPES, CAPABILITIES } from './constants';
 
 const Accessibility = () => (
   <>
@@ -50,7 +51,14 @@ const Editor = () => {
   const story = content ? JSON.parse(content) : {};
 
   return (
-    <StoryEditor config={{ apiCallbacks }} initialEdits={{ story }}>
+    <StoryEditor
+      config={{
+        apiCallbacks,
+        capabilities: CAPABILITIES,
+        allowedMimeTypes: ALLOWED_MIME_TYPES,
+      }}
+      initialEdits={{ story }}
+    >
       <InterfaceSkeleton
         header={<Header />}
         sidebarTabs={{
