@@ -11,7 +11,7 @@ import {
 } from '@googleforcreators/story-editor';
 import { elementTypes } from '@googleforcreators/element-library';
 import { registerElementType } from '@googleforcreators/elements';
-import saveStoryById from "./SaveStoryById";
+import saveStoryById from "./saveStoryByLocalStorage";
 import DocumentPane, {
   PublishModalDocumentPane,
   IsolatedStatusPanel,
