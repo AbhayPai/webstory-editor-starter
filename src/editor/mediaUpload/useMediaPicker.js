@@ -1,24 +1,33 @@
-// import { useCallback, useEffect, useMemo } from '@googleforcreators/react';
-import { __ } from '@googleforcreators/i18n';
-// import { trackEvent } from '@googleforcreators/tracking';
-// import { useSnackbar } from '@googleforcreators/design-system';
-// import { useConfig, useAPI } from '@googleforcreators/story-editor';
+import { useCallback, useEffect, useMemo } from '@googleforcreators/react';
+import { useAPI } from '@googleforcreators/story-editor';
 import PropTypes from 'prop-types';
 
-function useMediaPicker({
-  title = __('Upload to Story', 'web-stories'),
-  buttonInsertText = __('Insert into page', 'web-stories'),
-  onSelect,
-  onSelectErrorMessage = __('Unable to use this file type.', 'web-stories'),
-  onClose,
-  onPermissionError,
-  type = '',
-  multiple = false,
-  cropParams,
-}) {
+// @TODO: Define mediapicker for BSP CMS.
+function useMediaPicker() {
+  const {
+    actions: { updateMedia },
+  } = useAPI();
 
-  // @TODO: Define mediapicker.
-  return () => ({});
+  useEffect(() => {
+    try {
+      // @TODO: Define window.cms.Uploader.success function.
+    } catch (e) {
+      console.error("useMediaPicker >> useEffect", e);
+    }
+  }, [updateMedia]);
+
+  // @TODO: Need openMediaDialog definition.
+  const openMediaDialog = useCallback(
+    (evt) => {
+      window.alert("Hooray!!! Open your own CMS media picker.");
+      console.log("useMediaPicker >> evt >> openMediaDialog", evt);
+    },
+    []
+  );
+
+  return useMemo(() => {
+    return openMediaDialog;
+  }, [openMediaDialog]);
 }
 
 useMediaPicker.propTypes = {
