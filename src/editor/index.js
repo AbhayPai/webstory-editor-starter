@@ -20,7 +20,7 @@ import DocumentPane, {
   IsolatedStatusPanel,
 } from './documentPane';
 import MediaUpload from './mediaUpload';
-import getMedia from './../data/getMedia';
+import {getMedia, getProducts} from './../data';
 
 const Accessibility = () => (
   <>
@@ -47,6 +47,7 @@ const LayoutEditor = () => {
   const apiCallbacks = {
     saveStoryById,
     getMedia,
+    getProducts,
   };
 
   elementTypes.forEach(registerElementType);
@@ -61,7 +62,8 @@ const LayoutEditor = () => {
         capabilities: CAPABILITIES,
         allowedMimeTypes: ALLOWED_MIME_TYPES,
         MediaUpload,
-        getMedia
+        isShoppingEnabled: true,
+        shoppingProvider: 'None',
       }}
       initialEdits={{ story }}
     >
