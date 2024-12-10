@@ -11,13 +11,15 @@ import {
 } from '@googleforcreators/story-editor';
 import { elementTypes } from '@googleforcreators/element-library';
 import { registerElementType } from '@googleforcreators/elements';
+
+import { ALLOWED_MIME_TYPES, CAPABILITIES } from './constants';
+import { default as Header } from './header';
 import saveStoryById from "./saveStoryByLocalStorage";
 import DocumentPane, {
   PublishModalDocumentPane,
   IsolatedStatusPanel,
 } from './documentPane';
-import { default as Header } from './header';
-import { ALLOWED_MIME_TYPES, CAPABILITIES } from './constants';
+import MediaUpload from './mediaUpload';
 
 const Accessibility = () => (
   <>
@@ -40,7 +42,7 @@ const Priority = () => (
   </>
 );
 
-const Editor = () => {
+const LayoutEditor = () => {
   const apiCallbacks = {
     saveStoryById,
   };
@@ -56,6 +58,7 @@ const Editor = () => {
         apiCallbacks,
         capabilities: CAPABILITIES,
         allowedMimeTypes: ALLOWED_MIME_TYPES,
+        MediaUpload,
       }}
       initialEdits={{ story }}
     >
@@ -85,4 +88,4 @@ const Editor = () => {
   );
 };
 
-export default Editor;
+export default LayoutEditor;

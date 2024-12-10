@@ -38,4 +38,3 @@ export const CAPABILITIES = {
   "hasUploadMediaAction": true,
   "canManageSettings": true
 }
-

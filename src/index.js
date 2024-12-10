@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Editor from './editor';
+import LayoutEditor from './editor';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Editor/>
+    <LayoutEditor/>
   </React.StrictMode>,
   document.getElementById('root')
 );
