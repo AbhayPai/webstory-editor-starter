@@ -20,6 +20,7 @@ import DocumentPane, {
   IsolatedStatusPanel,
 } from './documentPane';
 import MediaUpload from './mediaUpload';
+import getMedia from './../data/getMedia';
 
 const Accessibility = () => (
   <>
@@ -45,6 +46,7 @@ const Priority = () => (
 const LayoutEditor = () => {
   const apiCallbacks = {
     saveStoryById,
+    getMedia,
   };
 
   elementTypes.forEach(registerElementType);
@@ -59,6 +61,7 @@ const LayoutEditor = () => {
         capabilities: CAPABILITIES,
         allowedMimeTypes: ALLOWED_MIME_TYPES,
         MediaUpload,
+        getMedia
       }}
       initialEdits={{ story }}
     >
