@@ -20,7 +20,7 @@ import DocumentPane, {
   IsolatedStatusPanel,
 } from './documentPane';
 import MediaUpload from './mediaUpload';
-import {getMedia, getProducts} from './../data';
+import {getMedia, getProducts, getCustomPageTemplates} from './../data';
 
 const Accessibility = () => (
   <>
@@ -48,6 +48,7 @@ const LayoutEditor = () => {
     saveStoryById,
     getMedia,
     getProducts,
+    getCustomPageTemplates,
   };
 
   elementTypes.forEach(registerElementType);

@@ -4,7 +4,7 @@ import LayoutEditor from './editor';
 
 ReactDOM.render(
   <React.StrictMode>
-    <LayoutEditor/>
+    <LayoutEditor />
   </React.StrictMode>,
   document.getElementById('root')
 );
