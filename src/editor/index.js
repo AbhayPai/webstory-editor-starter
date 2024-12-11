@@ -14,13 +14,19 @@ import { registerElementType } from '@googleforcreators/elements';
 
 import { ALLOWED_MIME_TYPES, CAPABILITIES } from './constants';
 import { default as Header } from './header';
-import saveStoryById from "./saveStoryByLocalStorage";
 import DocumentPane, {
   PublishModalDocumentPane,
   IsolatedStatusPanel,
 } from './documentPane';
 import MediaUpload from './mediaUpload';
-import {getMedia, getProducts, getCustomPageTemplates} from './../data';
+import {
+  getMedia,
+  getProducts,
+  getCustomPageTemplates
+} from './../data';
+import {
+  saveStoryById
+} from "./../save";
 
 const Accessibility = () => (
   <>
