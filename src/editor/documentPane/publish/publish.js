@@ -31,6 +31,7 @@ import {
  * Internal dependencies
  */
 import PublishTime from './publishTime';
+import Author from './author';
 
 function PublishPanel({ nameOverride }) {
   return (
@@ -41,6 +42,7 @@ function PublishPanel({ nameOverride }) {
       <PanelTitle>{__('Publishing', 'web-stories')}</PanelTitle>
       <PanelContent>
         <PublishTime />
+        <Author />
       </PanelContent>
     </Panel>
   );
