@@ -140,7 +140,7 @@ function StatusPanel({
     },
   ];
 
-  // if (capabilities?.publish) {
+  if (capabilities?.publish) {
     visibilityOptions.push({
       value: VISIBILITY.PRIVATE,
       label: __('Private', 'web-stories'),
@@ -152,7 +152,7 @@ function StatusPanel({
       label: __('Password Protected', 'web-stories'),
       helper: __('Visible only to those with the password.', 'web-stories'),
     });
-  // }
+  }
 
   const handleChangePassword = useCallback(
     (evt) => {

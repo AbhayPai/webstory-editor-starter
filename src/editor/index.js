@@ -22,7 +22,9 @@ import MediaUpload from './mediaUpload';
 import {
   getMedia,
   getProducts,
-  getCustomPageTemplates
+  getCustomPageTemplates,
+  getTaxonomies,
+  getTaxonomyTerm,
 } from './../data';
 import {
   saveStoryById
@@ -55,6 +57,8 @@ const LayoutEditor = () => {
     getMedia,
     getProducts,
     getCustomPageTemplates,
+    getTaxonomies,
+    getTaxonomyTerm,
   };
 
   elementTypes.forEach(registerElementType);

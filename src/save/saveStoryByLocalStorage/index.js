@@ -22,6 +22,14 @@ const saveStoryById = ({
     },
     stylePresets: globalStoryStyles,
     permalinkTemplate: "https://example.org/web-stories/%pagename%/",
+    capabilities: {
+      'publish': true,
+      'assign-author': true,
+      'assign-web_story_tag': true,
+      'create-web_story_tag': true,
+      'assign-web_story_category': true,
+      'create-web_story_category': true,
+    },
   };
 
   window.localStorage.setItem("STORY_CONTENT", JSON.stringify(storySaveData));
