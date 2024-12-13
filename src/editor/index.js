@@ -2,16 +2,15 @@ import { __ } from '@googleforcreators/i18n';
 import {
   StoryEditor,
   InterfaceSkeleton,
-  PageBackgroundTextLowContrast,
-  TextElementFontSizeTooSmall,
-  StoryPagesCount,
-  PageTooMuchText,
-  StoryMissingTitle,
-  StoryTitleLength,
 } from '@googleforcreators/story-editor';
 import { elementTypes } from '@googleforcreators/element-library';
 import { registerElementType } from '@googleforcreators/elements';
 
+import {
+  Accessibility,
+  Design,
+  Priority
+} from './checklist';
 import { ALLOWED_MIME_TYPES, CAPABILITIES } from './constants';
 import { default as Header } from './header';
 import DocumentPane, {
@@ -29,27 +28,6 @@ import {
 import {
   saveStoryById
 } from "./../save";
-
-const Accessibility = () => (
-  <>
-    <PageBackgroundTextLowContrast />
-    <TextElementFontSizeTooSmall />
-  </>
-);
-
-const Design = () => (
-  <>
-    <StoryPagesCount />
-    <PageTooMuchText />
-  </>
-);
-
-const Priority = () => (
-  <>
-    <StoryMissingTitle />
-    <StoryTitleLength />
-  </>
-);
 
 const LayoutEditor = () => {
   const apiCallbacks = {
