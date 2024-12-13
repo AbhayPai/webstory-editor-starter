@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/webstory-editor-starter/static/js/main.3fec76ee.js",
+    "main.js": "/webstory-editor-starter/static/js/main.6ff0e9cc.js",
     "static/js/4108.e1940916.chunk.js": "/webstory-editor-starter/static/js/4108.e1940916.chunk.js",
     "static/js/2736.d40baac2.chunk.js": "/webstory-editor-starter/static/js/2736.d40baac2.chunk.js",
     "static/js/7757.12e6e595.chunk.js": "/webstory-editor-starter/static/js/7757.12e6e595.chunk.js",
@@ -82,7 +82,7 @@
     "static/js/3849.e80994c4.chunk.js": "/webstory-editor-starter/static/js/3849.e80994c4.chunk.js",
     "static/js/318.68d52ebe.chunk.js": "/webstory-editor-starter/static/js/318.68d52ebe.chunk.js",
     "index.html": "/webstory-editor-starter/index.html",
-    "main.3fec76ee.js.map": "/webstory-editor-starter/static/js/main.3fec76ee.js.map",
+    "main.6ff0e9cc.js.map": "/webstory-editor-starter/static/js/main.6ff0e9cc.js.map",
     "4108.e1940916.chunk.js.map": "/webstory-editor-starter/static/js/4108.e1940916.chunk.js.map",
     "2736.d40baac2.chunk.js.map": "/webstory-editor-starter/static/js/2736.d40baac2.chunk.js.map",
     "7757.12e6e595.chunk.js.map": "/webstory-editor-starter/static/js/7757.12e6e595.chunk.js.map",
@@ -156,6 +156,6 @@
     "318.68d52ebe.chunk.js.map": "/webstory-editor-starter/static/js/318.68d52ebe.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.3fec76ee.js"
+    "static/js/main.6ff0e9cc.js"
   ]
 }
