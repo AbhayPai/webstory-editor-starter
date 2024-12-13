@@ -6,3 +6,4 @@ export { default as getTaxonomyTerm } from './getTaxonomyTerm';
 export { default as createTaxonomyTerm } from './createTaxonomyTerm';
 export { default as getStoryById } from './getStoryById';
 export { default as getCurrentUser } from './getCurrentUser';
+export { default as getAuthors } from './getAuthors';

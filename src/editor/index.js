@@ -27,6 +27,7 @@ import {
   createTaxonomyTerm,
   getStoryById,
   getCurrentUser,
+  getAuthors,
 } from './../data';
 import {
   saveStoryById
@@ -44,6 +45,7 @@ const LayoutEditor = () => {
     createTaxonomyTerm,
     getStoryById,
     getCurrentUser,
+    getAuthors,
   };
 
   elementTypes.forEach(registerElementType);

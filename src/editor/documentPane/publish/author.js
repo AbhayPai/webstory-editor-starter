@@ -18,27 +18,107 @@
  * External dependencies
  */
 import { __ } from '@googleforcreators/i18n';
+import { useCallback, useEffect, useState } from '@googleforcreators/react';
 import { DatalistDropdown } from '@googleforcreators/design-system';
 import {
   Row,
+  useStory,
+  useAPI,
+  useSidebar,
 } from '@googleforcreators/story-editor';
 
 function Author() {
+  const {
+    actions: { getAuthors },
+  } = useAPI();
+  const {
+    state: { users, usersLoadingState },
+    actions: { loadUsers },
+  } = useSidebar();
+  const { isSaving, author, updateStory } = useStory(
+    ({
+      state: {
+        meta: { isSaving },
+        story: { author = {} },
+      },
+      actions: { updateStory },
+    }) => {
+      return {
+        isSaving,
+        author,
+        updateStory,
+      };
+    }
+  );
+
+  const [queriedUsers, setQueriedUsers] = useState(null);
+  const [visibleOptions, setVisibleOptions] = useState(null);
+
+  useEffect(() => {
+    loadUsers();
+  }, [loadUsers]);
+
+  const getAuthorsBySearch = useCallback(
+    (search) => {
+      return getAuthors(search)
+        .then((data) => {
+          const userData = data.map(({ id, name }) => ({
+            id,
+            name,
+          }));
+          setQueriedUsers(userData);
+        })
+        .catch(() => {
+          // Do nothing for now.
+        });
+    },
+    [getAuthors]
+  );
+
+  useEffect(() => {
+    if (users?.length) {
+      const currentAuthor = users.find(({ id }) => author.id === id);
+      if (!currentAuthor) {
+        setVisibleOptions([author, ...users]);
+      } else {
+        setVisibleOptions(users);
+      }
+    }
+  }, [author, users]);
+
+  const handleChangeAuthor = useCallback(
+    ({ id, name }) => {
+      updateStory({
+        properties: { author: { id, name } },
+      });
+    },
+    [updateStory]
+  );
+
+  const hasError = usersLoadingState === 'errored';
+  const isLoadingUsers = usersLoadingState !== 'finished' && !hasError;
+  const isLoading = isLoadingUsers || !visibleOptions;
   const dropDownParams = {
     hasSearch: true,
     lightMode: true,
-    onChange: () => ({}),
-    getOptionsByQuery:  () => ({}),
-    selectedId: '',
+    onChange: handleChangeAuthor,
+    getOptionsByQuery: getAuthorsBySearch,
+    selectedId: author.id,
     dropDownLabel: __('Author', 'web-stories'),
-    placeholder: __('Loading…', 'web-stories'),
-    primaryOptions: [],
+    placeholder: hasError
+      ? __('Could not load users', 'web-stories')
+      : isLoading
+        ? __('Loading…', 'web-stories')
+        : '',
+    disabled: isLoading || hasError || isSaving,
+    primaryOptions: isLoading ? [] : visibleOptions,
     zIndex: 10,
   };
 
   return (
     <Row>
       <DatalistDropdown
+        options={queriedUsers}
         searchResultsLabel={__('Search results', 'web-stories')}
         dropdownButtonLabel={__('Author', 'web-stories')}
         title={__('Available authors', 'web-stories')}

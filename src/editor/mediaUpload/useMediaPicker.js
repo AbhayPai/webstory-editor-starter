@@ -20,7 +20,6 @@ function useMediaPicker() {
   const openMediaDialog = useCallback(
     (evt) => {
       window.alert("Hooray!!! Open your own CMS media picker.");
-      console.log("useMediaPicker >> evt >> openMediaDialog", evt);
     },
     []
   );
