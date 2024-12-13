@@ -24,10 +24,14 @@ import {
   getCustomPageTemplates,
   getTaxonomies,
   getTaxonomyTerm,
+  createTaxonomyTerm,
+  getStoryById,
+  getCurrentUser,
 } from './../data';
 import {
   saveStoryById
 } from "./../save";
+import CrossOriginIsolation from './crossOriginIsolation';
 
 const LayoutEditor = () => {
   const apiCallbacks = {
@@ -37,6 +41,9 @@ const LayoutEditor = () => {
     getCustomPageTemplates,
     getTaxonomies,
     getTaxonomyTerm,
+    createTaxonomyTerm,
+    getStoryById,
+    getCurrentUser,
   };
 
   elementTypes.forEach(registerElementType);
@@ -78,6 +85,7 @@ const LayoutEditor = () => {
           }
         }}
       />
+      <CrossOriginIsolation />
     </StoryEditor>
   );
 };

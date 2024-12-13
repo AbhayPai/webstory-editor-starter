@@ -25,10 +25,10 @@ const saveStoryById = ({
     capabilities: {
       'publish': true,
       'assign-author': true,
-      'assign-web_story_tag': true,
-      'create-web_story_tag': true,
       'assign-web_story_category': true,
       'create-web_story_category': true,
+      'assign-web_story_tag': true,
+      'create-web_story_tag': true,
     },
   };
 
