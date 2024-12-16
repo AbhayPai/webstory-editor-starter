@@ -32,15 +32,15 @@ const saveStoryById = ({
     },
     publisherLogo: {
       id: 0,
-      url: '',
-      height: 0,
-      width: 0
+      url: 'https://placehold.co/200x100?text=Temaplate+Sample',
+      width: 200,
+      height: 100,
     },
     featuredMedia: {
-      id: 0,
-      url: '',
-      height: 0,
-      width: 0
+      width: 272,
+      height: 92,
+      isExternal: true,
+      url: 'https://raw.githubusercontent.com/AbhayPai/profile/refs/heads/master/src/assets/images/ap-logo.jpg',
     },
     revisions: { count: 8, id: 189 },
   };

@@ -16,7 +16,7 @@ const getCustomPageTemplates = () => {
       "id": 0,
       "height": 0,
       "width": 0,
-      "url": "https://placehold.co/600x400?text=Temaplate+Sample"
+      "url": "https://placehold.co/200x100?text=Temaplate+Sample"
     }
   }];
   return Promise.resolve({ hasMore: true, templates });
