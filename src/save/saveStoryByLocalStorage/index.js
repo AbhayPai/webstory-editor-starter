@@ -30,6 +30,19 @@ const saveStoryById = ({
       'assign-web_story_tag': true,
       'create-web_story_tag': true,
     },
+    publisherLogo: {
+      id: 0,
+      url: '',
+      height: 0,
+      width: 0
+    },
+    featuredMedia: {
+      id: 0,
+      url: '',
+      height: 0,
+      width: 0
+    },
+    revisions: { count: 8, id: 189 },
   };
 
   window.localStorage.setItem("STORY_CONTENT", JSON.stringify(storySaveData));
