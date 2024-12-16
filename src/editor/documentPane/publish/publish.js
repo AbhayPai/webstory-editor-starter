@@ -19,8 +19,11 @@
  */
 import PropTypes from 'prop-types';
 import {
+  useState,
+  useEffect,
   useMemo,
   useCallback,
+  forwardRef,
 } from '@googleforcreators/react';
 import styled from 'styled-components';
 import { getExtensionsFromMimeType } from '@googleforcreators/media';
@@ -35,6 +38,8 @@ import {
   Text,
   TextSize,
   Icons,
+  DatalistDropdown,
+  DatalistOption,
 } from '@googleforcreators/design-system';
 import {
   highlightStates as states,
@@ -54,6 +59,7 @@ import { addQueryArgs } from '@googleforcreators/url';
 /**
  * Internal dependencies
  */
+import * as apiCallbacks from '../../../data/publisherLogos';
 import PublishTime from './publishTime';
 import Author from './author';
 
@@ -109,6 +115,14 @@ const DropdownWrapper = styled.div`
   margin-top: 3px;
 `;
 
+const LogoImg = styled.img`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  max-width: 96px;
+  max-height: 96px;
+`;
+
 const RevisionsWrapper = styled.div`
   width: 100%;
   margin-bottom: 16px;
@@ -131,23 +145,31 @@ function PublishPanel({ nameOverride }) {
   const {
     state: { users },
   } = useSidebar();
+  const {
+    api: { publisherLogos: publisherLogosPath },
+  } = useConfig();
+
+  const { getPublisherLogos, addPublisherLogo } = apiCallbacks;
 
   const {
     allowedMimeTypes: { image: allowedImageMimeTypes },
     dashboardSettingsLink,
     capabilities: { hasUploadMediaAction, canManageSettings },
+    MediaUpload,
     revisionLink,
   } = useConfig();
-
-  const menuOptions = [hasUploadMediaAction && 'upload', 'hotlink'].filter(
-    Boolean
-  );
 
   const allowedImageFileTypes = useMemo(
     () =>
       allowedImageMimeTypes.flatMap((type) => getExtensionsFromMimeType(type)),
     [allowedImageMimeTypes]
   );
+
+  const [publisherLogos, setPublisherLogos] = useState([]);
+
+  useEffect(() => {
+    getPublisherLogos(publisherLogosPath).then(setPublisherLogos);
+  }, [getPublisherLogos, publisherLogosPath]);
 
   const { highlightPoster, highlightLogo, resetHighlight } = useHighlights(
     (state) => ({
@@ -158,7 +180,7 @@ function PublishPanel({ nameOverride }) {
     })
   );
 
-  const { featuredMedia, updateStory, capabilities, revisions } =
+  const { featuredMedia, publisherLogo, updateStory, capabilities, revisions } =
     useStory(
       ({
         state: {
@@ -181,28 +203,8 @@ function PublishPanel({ nameOverride }) {
       }
     );
 
-    const getErrorMessage = (message) => {
-      let returnedMessage = __(
-        'No file types are currently supported.',
-        'web-stories'
-      );
-
-      if (allowedImageFileTypes.length) {
-        returnedMessage = sprintf(
-          message,
-          translateToExclusiveList(allowedImageFileTypes)
-        );
-      }
-
-      return returnedMessage;
-    };
-
-  const revisionCount = 5;
+  const revisionCount = revisions?.count ? revisions?.count : 0;
   const revisionId = revisions?.id ? revisions?.id : 0;
-  const posterErrorMessage = getErrorMessage(
-    /* translators: %s: list of allowed file types. */
-    __('Please choose only %s as a poster.', 'web-stories')
-  );
 
   const handleChangePoster = useCallback(
     /**
@@ -226,6 +228,111 @@ function PublishPanel({ nameOverride }) {
       });
     },
     [updateStory]
+  );
+
+  const onNewPublisherLogoSelected = ({ id, src }) => {
+    const newLogo = { id, url: src };
+    addPublisherLogo(publisherLogosPath, id);
+    setPublisherLogos((logos) => [...logos, newLogo]);
+    onPublisherLogoChange(newLogo);
+  };
+
+  const onPublisherLogoChange = (option) => {
+    updateStory({
+      properties: {
+        publisherLogo: {
+          id: option.id,
+          url: option.url,
+        },
+      },
+    });
+  };
+
+  const getErrorMessage = (message) => {
+    let returnedMessage = __(
+      'No file types are currently supported.',
+      'web-stories'
+    );
+
+    if (allowedImageFileTypes.length) {
+      returnedMessage = sprintf(
+        message,
+        translateToExclusiveList(allowedImageFileTypes)
+      );
+    }
+
+    return returnedMessage;
+  };
+
+  const publisherLogoErrorMessage = getErrorMessage(
+    /* translators: %s: list of allowed file types. */
+    __('Please choose only %s as publisher logo.', 'web-stories')
+  );
+  const posterErrorMessage = getErrorMessage(
+    /* translators: %s: list of allowed file types. */
+    __('Please choose only %s as a poster.', 'web-stories')
+  );
+
+  const publisherLogoOptionRenderer = forwardRef(({ option, ...rest }, ref) => {
+    if (option.props) {
+      return option;
+    }
+    return (
+      <DatalistOption value={option.id} ref={ref} {...rest}>
+        <LogoImg
+          src={option.url}
+          alt=""
+          decoding="async"
+          crossOrigin="anonymous"
+        />
+      </DatalistOption>
+    );
+  });
+  const activeItemRenderer = () => {
+    const displayText = publisherLogos.length
+      ? __('Select logo', 'web-stories')
+      : __('No logo', 'web-stories');
+    return publisherLogo.id ? (
+      <LogoImg
+        src={publisherLogo.url}
+        alt=""
+        decoding="async"
+        crossOrigin="anonymous"
+      />
+    ) : (
+      <Text.Span size={TextSize.Small}>{displayText}</Text.Span>
+    );
+  };
+
+  const renderUploadButton = (open) => (
+    <DatalistOption onClick={open} aria-label={__('Add new', 'web-stories')}>
+      <Icons.ArrowCloud height={32} width={32} />
+      <Text.Span size={TextSize.XSmall}>
+        {__('Add new', 'web-stories')}
+      </Text.Span>
+    </DatalistOption>
+  );
+  const publisherLogosWithUploadOption = [...publisherLogos];
+  if (hasUploadMediaAction) {
+    const cropParams = {
+      width: 96,
+      height: 96,
+    };
+    publisherLogosWithUploadOption.unshift(
+      <MediaUpload
+        onSelect={onNewPublisherLogoSelected}
+        onSelectErrorMessage={publisherLogoErrorMessage}
+        type={allowedImageMimeTypes}
+        render={renderUploadButton}
+        title={__('Select as publisher logo', 'web-stories')}
+        buttonInsertText={__('Select as publisher logo', 'web-stories')}
+        cropParams={cropParams}
+      />
+    );
+  }
+
+  const menuOptions = [hasUploadMediaAction && 'upload', 'hotlink'].filter(
+    Boolean
   );
 
   return (
@@ -293,6 +400,27 @@ function PublishPanel({ nameOverride }) {
           </MediaInputWrapper>
           <DropdownWrapper>
             <MediaWrapper>
+              <DatalistDropdown
+                options={publisherLogosWithUploadOption}
+                primaryOptions={publisherLogosWithUploadOption}
+                onChange={onPublisherLogoChange}
+                title={__('Available publisher logos', 'web-stories')}
+                dropdownButtonLabel={__('Publisher Logo', 'web-stories')}
+                renderer={publisherLogoOptionRenderer}
+                activeItemRenderer={activeItemRenderer}
+                selectedId={publisherLogo.id}
+                zIndex={10}
+                disabled={!publisherLogosWithUploadOption.length}
+                ref={(node) => {
+                  if (
+                    node &&
+                    highlightLogo?.focus &&
+                    highlightLogo?.showEffect
+                  ) {
+                    node.focus();
+                  }
+                }}
+              />
             </MediaWrapper>
             <LabelWrapper>
               <Label>{__('Publisher Logo', 'web-stories')}</Label>

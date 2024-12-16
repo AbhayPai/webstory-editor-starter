@@ -62,6 +62,11 @@ const LayoutEditor = () => {
         MediaUpload,
         isShoppingEnabled: true,
         shoppingProvider: 'None',
+        dashboardSettingsLink: '/',
+        revisionLink: '/',
+        api: {
+          publisherLogos: '/',
+        },
       }}
       initialEdits={{ story }}
     >
