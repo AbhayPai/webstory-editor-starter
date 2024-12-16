@@ -7,17 +7,23 @@ import { elementTypes } from '@googleforcreators/element-library';
 import { registerElementType } from '@googleforcreators/elements';
 
 import {
+  ALLOWED_MIME_TYPES,
+  CAPABILITIES
+} from './constants';
+import {
   Accessibility,
   Design,
   Priority
-} from './checklist';
-import { ALLOWED_MIME_TYPES, CAPABILITIES } from './constants';
-import { default as Header } from './header';
+} from './components/checklist';
+import {
+  default as Header,
+} from './components/header';
+import MediaUpload from './components/mediaUpload';
+import CrossOriginIsolation from './components/crossOriginIsolation';
 import DocumentPane, {
   PublishModalDocumentPane,
   IsolatedStatusPanel,
 } from './documentPane';
-import MediaUpload from './mediaUpload';
 import {
   getMedia,
   getProducts,
@@ -28,11 +34,8 @@ import {
   getStoryById,
   getCurrentUser,
   getAuthors,
+  saveStoryById,
 } from './../data';
-import {
-  saveStoryById
-} from "./../save";
-import CrossOriginIsolation from './crossOriginIsolation';
 
 const LayoutEditor = () => {
   const apiCallbacks = {
