@@ -72,7 +72,8 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "deploy:netlify": "PUBLIC_URL=/ npm run build"
   },
   "eslintConfig": {
     "extends": [

@@ -20,4 +20,6 @@ npm run build
 npm run deploy
 ```
 
-## [Live Preview](https://abhaypai.github.io/webstory-editor-starter)
+## [Github Live Preview](https://abhaypai.github.io/webstory-editor-starter)
+
+## [![Netlify Live Preview](https://api.netlify.com/api/v1/badges/94970227-97fb-47d5-8eba-cae2e5b45fae/deploy-status)](https://app.netlify.com/sites/webstory-editor-starter/deploys)
