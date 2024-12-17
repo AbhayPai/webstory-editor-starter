@@ -1,16 +1,5 @@
-[build]
-  publish = "build"
-  command = "CI=false npm run build"
-  functions = "netlify/functions"
-
 [[headers]]
   for = "/*"
   [headers.values]
     Cross-Origin-Opener-Policy = "same-origin"
     Cross-Origin-Embedder-Policy = "require-corp"
-
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/server"
-  status = 200
-  force = true
