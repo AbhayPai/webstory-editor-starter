@@ -8,3 +8,4 @@ export { default as getStoryById } from './getStoryById';
 export { default as getCurrentUser } from './getCurrentUser';
 export { default as getAuthors } from './getAuthors';
 export { default as saveStoryById } from './saveStoryById';
+export { default as getStoryDefault } from './getStoryDefault';

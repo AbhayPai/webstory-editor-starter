@@ -2,18 +2,25 @@ import { DATA_VERSION } from "@googleforcreators/migration";
 
 const saveStoryById = ({
   pages,
+  fonts,
+  featuredMedia,
   globalStoryStyles,
+  publisherLogo,
+  autoAdvance,
+  defaultPageDuration,
   currentStoryStyles,
+  backgroundAudio,
   content,
-  title,
-  excerpt
+  author,
+  products,
+  ...rest
 }) => {
   const storySaveData = {
     title: {
-      raw: title,
+      raw: rest.title,
     },
     excerpt: {
-      raw: excerpt,
+      raw: rest.excerpt,
     },
     storyData: {
       version: DATA_VERSION,
@@ -47,6 +54,18 @@ const saveStoryById = ({
 
   window.localStorage.setItem("STORY_CONTENT", JSON.stringify(storySaveData));
   window.localStorage.setItem("STORY_MARKUP", content);
+
+  console.log("pages", pages);
+  console.log("fonts", fonts);
+  console.log("featuredMedia", featuredMedia);
+  console.log("globalStoryStyles", globalStoryStyles);
+  console.log("publisherLogo", publisherLogo);
+  console.log("autoAdvance", autoAdvance);
+  console.log("defaultPageDuration", defaultPageDuration);
+  console.log("backgroundAudio", backgroundAudio);
+  console.log("content", content);
+  console.log("author", author);
+  console.log("products", products);
 
   return Promise.resolve({});
 };

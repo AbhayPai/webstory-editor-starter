@@ -35,6 +35,7 @@ import {
   getCurrentUser,
   getAuthors,
   saveStoryById,
+  getStoryDefault,
 } from './../data';
 
 const LayoutEditor = () => {
@@ -53,8 +54,7 @@ const LayoutEditor = () => {
 
   elementTypes.forEach(registerElementType);
 
-  const content = window.localStorage.getItem("STORY_CONTENT");
-  const story = content ? JSON.parse(content) : {};
+  const story = getStoryDefault();
 
   return (
     <StoryEditor
