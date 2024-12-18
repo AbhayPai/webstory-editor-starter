@@ -36,6 +36,7 @@ import {
   getAuthors,
   saveStoryById,
   getStoryDefault,
+  getFonts,
 } from './../data';
 
 const LayoutEditor = () => {
@@ -50,6 +51,7 @@ const LayoutEditor = () => {
     getStoryById,
     getCurrentUser,
     getAuthors,
+    getFonts,
   };
 
   elementTypes.forEach(registerElementType);
