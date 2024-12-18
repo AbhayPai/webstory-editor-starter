@@ -21,6 +21,9 @@ const getStoryDefault = () => {
       url: 'https://raw.githubusercontent.com/AbhayPai/profile/refs/heads/master/src/assets/images/ap-logo.jpg',
     },
     revisions: { count: 8, id: 189 },
+    author: { id: 1, name: 'Abhay Pai' },
+    date: null,
+    status: 'draft',
   };
 };
 
