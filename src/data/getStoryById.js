@@ -84,7 +84,7 @@ const getStoryById = () => {
       id: 0,
       height: 0,
       width: 0,
-      url: '',
+      url: 'https://raw.githubusercontent.com/AbhayPai/profile/refs/heads/master/src/assets/images/ap-logo.jpg',
     },
     publisherLogo: {
       id: 0,

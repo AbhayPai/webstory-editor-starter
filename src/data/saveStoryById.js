@@ -73,6 +73,7 @@ const saveStoryById = ({
   console.log("content", content);
   console.log("author", author);
   console.log("products", products);
+  console.log("rest", rest);
 
   return Promise.resolve({});
 };
