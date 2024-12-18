@@ -15,12 +15,10 @@ npm start
 npm run build
 ```
 
-## Deploy project in github
+## Deploy project in netlify
 ```
-npm run deploy
+npm run deploy:netlify
 ```
-
-## [Github Live Preview](https://abhaypai.github.io/webstory-editor-starter)
 
 ## [Netlify Live Preview](https://webstory-editor-starter.netlify.app)
 
