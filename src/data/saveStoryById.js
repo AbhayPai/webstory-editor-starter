@@ -38,18 +38,25 @@ const saveStoryById = ({
       'create-web_story_tag': true,
     },
     publisherLogo: {
-      id: 0,
-      url: 'https://placehold.co/200x100?text=Temaplate+Sample',
-      width: 200,
-      height: 100,
+      id: publisherLogo.id,
+      url: publisherLogo.url,
+      width: publisherLogo.width,
+      height: publisherLogo.height,
     },
     featuredMedia: {
-      width: 272,
-      height: 92,
-      isExternal: true,
-      url: 'https://raw.githubusercontent.com/AbhayPai/profile/refs/heads/master/src/assets/images/ap-logo.jpg',
+      width: featuredMedia.width,
+      height: featuredMedia.height,
+      isExternal: featuredMedia.isExternal,
+      url: featuredMedia.url,
     },
-    revisions: { count: 8, id: 189 },
+    revisions: {
+      count: 8,
+      id: 189
+    },
+    author: {
+      id: author.id,
+      name: author.name,
+    },
   };
 
   window.localStorage.setItem("STORY_CONTENT", JSON.stringify(storySaveData));
