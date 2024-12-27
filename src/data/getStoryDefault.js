@@ -24,6 +24,9 @@ const getStoryDefault = () => {
     author: { id: 1, name: 'Abhay Pai' },
     date: null,
     status: 'draft',
+    slug: '',
+    link: 'https://webstory-editor-starter.netlify.app/',
+    permalinkTemplate: 'https://webstory-editor-starter.netlify.app/%pagename%/',
   };
 };
 

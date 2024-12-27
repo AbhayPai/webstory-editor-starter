@@ -32,6 +32,7 @@ const getTaxonomyTerm = () => {
       name: 'pizza',
       slug: 'pizza',
       taxonomy: 'web_story_tag',
+      parent: 0,
     },
     {
       id: 2,
@@ -39,6 +40,7 @@ const getTaxonomyTerm = () => {
       name: 'burger',
       slug: 'burger',
       taxonomy: 'web_story_tag',
+      parent: 0,
     },
     {
       id: 3,
@@ -46,6 +48,7 @@ const getTaxonomyTerm = () => {
       name: 'frenchFry',
       slug: 'frenchFry',
       taxonomy: 'web_story_tag',
+      parent: 0,
     },
   ];
   const taxonomies = categories.concat(tags);
